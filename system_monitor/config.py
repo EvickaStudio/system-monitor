@@ -1,5 +1,5 @@
 # Configuration variables
-WIDTH = 670  # Adjusted width when adding more information
+WIDTH = 674  # Adjusted width when adding more information
 HEIGHT = 50  # Height of the overlay window
 UPDATE_INTERVAL = 500  # in milliseconds
 GRAPH_HISTORY_LENGTH = 20  # Number of data points to display in the graph

@@ -17,8 +17,10 @@ def format_bytes(bytes):
         return f"{bytes / 1024:.2f} KB"
     elif bytes < 1073741824:
         return f"{bytes / 1048576:.2f} MB"
-    else:
+    elif bytes < 1099511627776:
         return f"{bytes / 1073741824:.2f} GB"
+    else:
+        return f"{bytes / 1099511627776:.2f} TB"
 
 
 def get_system_info():

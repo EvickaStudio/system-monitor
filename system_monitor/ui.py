@@ -122,7 +122,7 @@ def create_overlay():
     cpu_label.place(x=20, y=12)
     cpu_value = CTkLabel(
         root,
-        text=f"{cpu_usage}%",
+        text=f"{cpu_usage:>5}%",
         bg_color=BACKGROUND_COLOR,
         text_color="white",
         font=("Helvetica", 12),
@@ -146,7 +146,7 @@ def create_overlay():
     ram_label.place(x=170, y=12)
     ram_value = CTkLabel(
         root,
-        text=f"{ram_usage}%",
+        text=f"{ram_usage:>5}%",
         bg_color=BACKGROUND_COLOR,
         text_color="white",
         font=("Helvetica", 12),
@@ -170,7 +170,7 @@ def create_overlay():
     disk_label.place(x=320, y=12)
     disk_value = CTkLabel(
         root,
-        text=f"{disk_usage}%",
+        text=f"{disk_usage:>5}%",
         bg_color=BACKGROUND_COLOR,
         text_color="white",
         font=("Helvetica", 12),
@@ -189,7 +189,7 @@ def create_overlay():
     net_label.place(x=430, y=12)
     net_value = CTkLabel(
         root,
-        text=f"{format_bytes(net_sent)}/{format_bytes(net_recv)}",
+        text=f"{format_bytes(net_sent):>10}/{format_bytes(net_recv):>10}",
         bg_color=BACKGROUND_COLOR,
         text_color="white",
         font=("Helvetica", 12),
@@ -202,10 +202,12 @@ def create_overlay():
         Update the system information displayed in the overlay.
         """
         cpu_usage, ram_usage, disk_usage, net_sent, net_recv = get_system_info()
-        cpu_value.configure(text=f"{cpu_usage}%")
-        ram_value.configure(text=f"{ram_usage}%")
-        disk_value.configure(text=f"{disk_usage}%")
-        net_value.configure(text=f"{format_bytes(net_sent)}/{format_bytes(net_recv)}")
+        cpu_value.configure(text=f"{cpu_usage:>5}%")
+        ram_value.configure(text=f"{ram_usage:>5}%")
+        disk_value.configure(text=f"{disk_usage:>5}%")
+        net_value.configure(
+            text=f"{format_bytes(net_sent):>10}/{format_bytes(net_recv):>10}"
+        )
 
         cpu_usage_history.append(cpu_usage)
         if len(cpu_usage_history) > GRAPH_HISTORY_LENGTH:
