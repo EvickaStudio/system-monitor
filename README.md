@@ -10,7 +10,7 @@ A Python application that displays an overlay with system information such as CP
 1. **Clone the repository:**
 
    ```sh
-   git clone https://github.com/EvickaStudio/system_monitor.git
+   git clone https://github.com/EvickaStudio/system-monitor.git
    cd system_monitor
    ```
 
